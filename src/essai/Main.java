@@ -1,5 +1,11 @@
 package essai;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
@@ -93,6 +99,14 @@ public class Main {
 		System.out.println(stream6.map(function).reduce(binaryOperator));
 		
 		///-> lecture d'un fichier avec les stream :
+		System.out.println("\nReading File :");
+		try {
+			Stream<String> stream7 = Files.lines(Paths.get("file.txt"));
+			stream7.forEach(System.out::println);
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 	}
 
 }
